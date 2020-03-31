@@ -36,6 +36,7 @@ intrestCalculator = (arr) => {
                 break;
             case 'no' || time <= 1:
                 ele.rate = 2;
+                break;
             default:
                 return 'no match';
 
