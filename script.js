@@ -26,15 +26,15 @@ const items = [
 intrestCalculator = (arr) => {
     const localArr = [...arr];
     localArr.forEach(ele => {
-
-        let answer = ele.principal >= 2500 ? 'yes': 'no';
+        const { principal, time} = ele;
+        let answer = principal >= 2500 ? 'yes': 'no';
 
         switch(answer){
             case 'yes':
-                ele.time > 1 && ele.time <= 3 ? ele.rate = 3 :
-                ele.time >= 3 ? ele.rate = 4 : ele.rate = 1;
+                time > 1 && time <= 3 ? ele.rate = 3 :
+                time >= 3 ? ele.rate = 4 : ele.rate = 1;
                 break;
-            case 'no' || ele.time <= 1:
+            case 'no' || time <= 1:
                 ele.rate = 2;
             default:
                 return 'no match';
@@ -43,17 +43,19 @@ intrestCalculator = (arr) => {
     })
 
     const intrestData = localArr.map( each => {
-        let intrest = (each.principal * each.rate * each.time) / 100; 
-        each.intrest = intrest;
+        const {principal, rate, time} = each;
+        each.intrest = (principal * rate * time) / 100; 
         return each;
     });
     
     console.log(intrestData)
 
+    return intrestData;
+
 }
 
 // calling function
-intrestCalculator(items)
+intrestCalculator(items);
 
 
 
