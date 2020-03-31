@@ -1,7 +1,7 @@
 // java script task 2
 
 
-// viariabels
+// variabels
 const items = [
     {
         principal: 2500,
